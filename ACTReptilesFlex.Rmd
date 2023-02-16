@@ -9,7 +9,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning = TRUE, message = TRUE)
 library(flexdashboard)
-source("visualisation.R")
+source("visualisation_final.R")
 ```
 
 Spatial Distribution Map
@@ -28,7 +28,7 @@ Charts {data-orientation=rows}
 ### Frequency of Reports over Time, Grouped by Order
 
 ```{r event_count}
-time_plot_2000s.log2
+time_plot_2000s_byDate
 ```
 
 ### Frequency of Genus Occurrence, Grouped by Family

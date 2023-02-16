@@ -128,7 +128,8 @@ time_plot_2000s <-
         panel.background = element_rect(fill = "white", colour = "grey50")) 
 # time_plot_2000s
 
-# Still not very clear... log scale? 
+
+# Still not very clear... log scale?
 time_plot_2000s.log2 <- 
   ggplot(chosen_data_act_2000s, aes(x=eventDate))+
   geom_bar(aes(fill=order), width=1)+
@@ -141,12 +142,32 @@ time_plot_2000s.log2 <-
 # time_plot_2000s.log2
 #   Looks like maximum sightings in summer! Do reptiles hibernate in winter? 
 
+# Line makes more sense...
+# Group by dates and get count info
+library(dplyr)
+chosen_data_act_2000s_byDate <-
+  chosen_data_act_2000s %>%
+  group_by(eventDate) %>%
+  tally()
+
+time_plot_2000s_byDate <- 
+  ggplot(chosen_data_act_2000s_byDate, aes(x=eventDate, y = n))+
+  geom_line(linewidth=.3, color="darkslategrey")+
+  labs(x="Event Date", y= "Number of Records (Log Scale)", fill="Family")+
+  theme(panel.background = element_rect(fill = "white", colour = "grey50")) + 
+  scale_y_continuous(trans = "log10") 
+time_plot_2000s_byDate
+
+
 # Update the map with the subset
 chosen_data_act_2000s.sf <- 
   st_as_sf(chosen_data_act_2000s, 
            coords = c("decimalLongitude", "decimalLatitude"),  
            crs = 4326)
-map_reptiles_ACT_2000s <- 
+map_reptiles_ACT_2000s <-  
+  mapview(chosen_data_act_2000s.sf, zcol="scientificName",
+          alpha.regions = 0.2, alpha = 0.5, label = "vernacularName",
+          layer.name = "Species")+
   mapview(chosen_data_act_2000s.sf, zcol="kingdom", hide = TRUE,
           alpha.regions = 0.2, alpha = 0.5, label = "vernacularName", 
           layer.name = "Kingdom") +
@@ -164,10 +185,8 @@ map_reptiles_ACT_2000s <-
           layer.name = "Family") +
   mapview(chosen_data_act_2000s.sf, zcol="genus", hide = TRUE,
           alpha.regions = 0.2, alpha = 0.5, label = "vernacularName",
-          layer.name = "Genus") +
-  mapview(chosen_data_act_2000s.sf, zcol="scientificName",
-          alpha.regions = 0.2, alpha = 0.5, label = "vernacularName",
-          layer.name = "Species")
+          layer.name = "Genus") 
+
 
 # Look at family and genus
 family_bar_2000s <- 
@@ -181,3 +200,5 @@ family_bar_2000s <-
         panel.background = element_rect(fill = "white", colour = "grey50")) +
   guides(fill = guide_legend(ncol = 3))
 family_bar_2000s
+
+save.image("visualisations")
