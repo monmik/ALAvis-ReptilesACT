@@ -71,35 +71,37 @@ mapview(chosen_data.sf)
 ##    on the map
 chosen_data_act <- chosen_data[chosen_data$decimalLongitude < 150, ]
   # Now with 7741 obs
-## Try again: Create sf object and map ----
-chosen_data_act.sf <- 
-  st_as_sf(chosen_data_act, 
-           coords = c("decimalLongitude", "decimalLatitude"),  
-           crs = 4326)
-map_reptiles_ACT <-
-  mapview(chosen_data_act.sf, zcol="kingdom",
-          alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
-    mapview(chosen_data_act.sf, zcol="phylum", hide = TRUE,
-            alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
-    mapview(chosen_data_act.sf, zcol="class", hide = TRUE,
-            alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
-    mapview(chosen_data_act.sf, zcol="order", hide = TRUE,
-            alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
-  mapview(chosen_data_act.sf, zcol="family", hide = TRUE,
-          alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
-  mapview(chosen_data_act.sf, zcol="genus", hide = TRUE,
-          alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
-  mapview(chosen_data_act.sf, zcol="scientificName", hide = TRUE,
-          alpha.regions = 0.2, alpha = 0.5, label = "vernacularName")
 
-# Looking at the record count over time
+## Try again: Create sf object and map ----
+ # This is updated below, commented out here.
+ # chosen_data_act.sf <- 
+ #  st_as_sf(chosen_data_act, 
+ #          coords = c("decimalLongitude", "decimalLatitude"),  
+ #           crs = 4326)
+ # map_reptiles_ACT <-
+ #  mapview(chosen_data_act.sf, zcol="kingdom",
+ #          alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
+ #    mapview(chosen_data_act.sf, zcol="phylum", hide = TRUE,
+ #            alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
+ #    mapview(chosen_data_act.sf, zcol="class", hide = TRUE,
+ #            alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
+ #    mapview(chosen_data_act.sf, zcol="order", hide = TRUE,
+ #            alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
+ #  mapview(chosen_data_act.sf, zcol="family", hide = TRUE,
+ #          alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
+ #  mapview(chosen_data_act.sf, zcol="genus", hide = TRUE,
+ #          alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
+ #  mapview(chosen_data_act.sf, zcol="scientificName", hide = TRUE,
+ #         alpha.regions = 0.2, alpha = 0.5, label = "vernacularName")
+
+# Plot some charts ----
 library(ggplot2)
 library(viridis)   
 
 # min(chosen_data_act$eventDate)
 # max(chosen_data_act$eventDate)
 
-# Observations over time
+## Observations over time ----
 time_plot <- 
   ggplot(chosen_data_act, aes(x=eventDate))+
     geom_bar(aes(fill=family))+
