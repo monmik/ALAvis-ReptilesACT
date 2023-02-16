@@ -2,9 +2,6 @@
 title: "Visualising Reptile Occurence in the ACT using ALA Occurrence Data"
 output: 
   flexdashboard::flex_dashboard:
-    # orientation: columns
-    # vertical_layout: fill
-    # vertical_layout: scroll
     horizontal_layout: fill
     vertical_layout: fill
 ---
