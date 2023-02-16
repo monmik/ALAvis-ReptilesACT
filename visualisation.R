@@ -74,6 +74,7 @@ chosen_data_act <- chosen_data[chosen_data$decimalLongitude < 150, ]
 
 ## Try again: Create sf object and map ----
  # This is updated below, commented out here.
+
  # chosen_data_act.sf <- 
  #  st_as_sf(chosen_data_act, 
  #          coords = c("decimalLongitude", "decimalLatitude"),  
@@ -87,12 +88,12 @@ chosen_data_act <- chosen_data[chosen_data$decimalLongitude < 150, ]
  #            alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
  #    mapview(chosen_data_act.sf, zcol="order", hide = TRUE,
  #            alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
- #  mapview(chosen_data_act.sf, zcol="family", hide = TRUE,
- #          alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
- #  mapview(chosen_data_act.sf, zcol="genus", hide = TRUE,
- #          alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
- #  mapview(chosen_data_act.sf, zcol="scientificName", hide = TRUE,
- #         alpha.regions = 0.2, alpha = 0.5, label = "vernacularName")
+ #   mapview(chosen_data_act.sf, zcol="family", hide = TRUE,
+ #           alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
+ #   mapview(chosen_data_act.sf, zcol="genus", hide = TRUE,
+ #           alpha.regions = 0.2, alpha = 0.5, label = "vernacularName") +
+ #   mapview(chosen_data_act.sf, zcol="scientificName", hide = TRUE,
+ #          alpha.regions = 0.2, alpha = 0.5, label = "vernacularName")
 
 # Plot some charts ----
 library(ggplot2)
