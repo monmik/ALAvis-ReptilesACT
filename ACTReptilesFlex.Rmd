@@ -1,0 +1,47 @@
+---
+title: "Visualising Reptile Occurence in the ACT using ALA Occurrence Data"
+output: 
+  flexdashboard::flex_dashboard:
+    # orientation: columns
+    # vertical_layout: fill
+    # vertical_layout: scroll
+    horizontal_layout: fill
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = TRUE, message = TRUE)
+library(flexdashboard)
+source("visualisation.R")
+```
+
+Spatial Distribution Map
+=====================================  
+
+<!-- Column {data-width=1500} -->
+<!-- ----------------------------------------------------------------------- -->
+
+### Spatial view of Occurence Records, Grouped by Taxonomic Rank
+
+```{r map}
+map_reptiles_ACT_2000s
+```
+
+Charts {data-orientation=rows}
+=====================================     
+
+<!-- Column {data-width=1500} -->
+<!-- ----------------------------------------------------------------------- -->
+
+### Frequency of Reports over Time, Grouped by Order
+
+```{r event_count}
+time_plot_2000s.log2
+```
+
+### Frequency of Genus Occurrence, Grouped by Family
+
+```{r fam_genus}
+family_bar_2000s
+```
+
