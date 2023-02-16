@@ -177,6 +177,7 @@ family_bar_2000s <-
   # facet_wrap(~order, scales = "free")+
   labs(x="Genus", y= "Number of Records", fill="Family")+
   theme(legend.position = "bottom", 
-        axis.text.x = element_text(angle = 45, hjust = 1), 
-        panel.background = element_rect(fill = "white", colour = "grey50")) 
-# family_bar_2000s
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5), 
+        panel.background = element_rect(fill = "white", colour = "grey50")) +
+  guides(fill = guide_legend(ncol = 3))
+family_bar_2000s

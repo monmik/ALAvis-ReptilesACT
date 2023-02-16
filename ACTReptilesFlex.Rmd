@@ -15,9 +15,6 @@ source("visualisation.R")
 Spatial Distribution Map
 =====================================  
 
-<!-- Column {data-width=1500} -->
-<!-- ----------------------------------------------------------------------- -->
-
 ### Spatial view of Occurence Records, Grouped by Taxonomic Rank
 
 ```{r map}
@@ -27,8 +24,6 @@ map_reptiles_ACT_2000s
 Charts {data-orientation=rows}
 =====================================     
 
-<!-- Column {data-width=1500} -->
-<!-- ----------------------------------------------------------------------- -->
 
 ### Frequency of Reports over Time, Grouped by Order
 
