@@ -117,8 +117,12 @@ time_plot_2000s_byDate <-
   ggplot(chosen_data_act_2000s_byDate, aes(x=eventDate, y = n))+
   geom_line(linewidth=.25)+
   labs(x="Event Date", y= "Number of Records (Log Scale)", fill="Family")+
-  theme(panel.background = element_rect(fill = "white", colour = "grey50")) + 
-  scale_y_continuous(trans = "log10") 
+  theme(panel.background = element_rect(fill = "white", colour = "grey50"), 
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) + 
+  scale_y_continuous(trans = "log10") +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y", 
+               limits=c(min(chosen_data_act_2000s_byDate$eventDate), 
+                        max(chosen_data_act_2000s_byDate$eventDate)))
   # time_plot_2000s_byDate
 
 
@@ -128,9 +132,7 @@ family_bar_2000s <-
   geom_bar(aes(fill=family), width=1)+
   scale_fill_viridis(discrete = TRUE)+
   labs(x="Genus", y= "Number of Records", fill="Family")+
-  theme(legend.position = "bottom", 
-        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5), 
-        panel.background = element_rect(fill = "white", colour = "grey50")) +
-  guides(fill = guide_legend(ncol = 3))
-# family_bar_2000s
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5), 
+        panel.background = element_rect(fill = "white", colour = "grey50"))
+family_bar_2000s
 

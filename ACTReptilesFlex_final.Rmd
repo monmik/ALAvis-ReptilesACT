@@ -1,9 +1,10 @@
 ---
-title: "Visualising Reptile Occurence in the ACT using ALA Occurrence Data"
+title: "Visualising Reptile Reports in the ACT using ALA Occurrence Data"
 output: 
   flexdashboard::flex_dashboard:
     horizontal_layout: fill
     vertical_layout: fill
+    
 ---
 
 ```{r setup, include=FALSE}
@@ -13,18 +14,17 @@ source("visualisation_final.R")
 library(plotly)
 ```
 
-Spatial Distribution Map
-=====================================  
+Column {data-width=1000}
+-------------------------------------
 
-### Spatial view of Occurence Records, Grouped by Taxonomic Rank
+### Spatial view of Individual Occurence Records, Grouped by Taxonomic Rank
 
 ```{r map}
 map_reptiles_ACT_2000s
 ```
 
-Charts {data-orientation=rows}
-=====================================     
-
+Column {data-width=1000}
+------------------------------------- 
 
 ### Frequency of Reports over Time, Grouped by Order
 
