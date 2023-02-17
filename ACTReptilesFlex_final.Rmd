@@ -26,7 +26,7 @@ map_reptiles_ACT_2000s
 Column {data-width=1000}
 ------------------------------------- 
 
-### Frequency of Reports over Time, Grouped by Order
+### Frequency of Reports Time series
 
 ```{r event_count}
 ggplotly(time_plot_2000s_byDate)
